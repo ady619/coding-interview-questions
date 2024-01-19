@@ -156,3 +156,10 @@ In React Native
     
     export default App;
 
+### 5. Write code to fetch data from an API
+     const fetchData = async () => {
+        const response = await fetch(
+          "https://api.sampleapis.com/countries/countries"
+        );
+        const json = await response.json();
+      };
