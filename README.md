@@ -163,3 +163,39 @@ In React Native
         );
         const json = await response.json();
       };
+### 6. Write code to flatten nested object.
+    const flattenObject = (obj) => {
+      let flattened = {};
+    
+      const recurse = (current, path = []) => {
+        for (let [key, value] of Object.entries(current)) {
+          let newPath = [...path, key];
+          if (typeof value === 'object') {
+            recurse(value, newPath);
+          } else {
+            flattened[newPath.join('.')] = value;
+          }
+        }
+      };
+    
+      recurse(obj);
+    
+      return flattened;
+    };
+    
+    // Example usage:
+    const nestedObject = {
+      a: {
+        b: {
+          c: 1,
+          d: {
+            e: 2
+          }
+        },
+        f: 3
+      },
+      g: 4
+    };
+    
+    const flattenedObject = flattenObject(nestedObject);
+    console.log(flattenedObject);
