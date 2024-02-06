@@ -199,3 +199,27 @@ In React Native
     
     const flattenedObject = flattenObject(nestedObject);
     console.log(flattenedObject);
+
+### 7. We have an array of string with repeatations. PLease print the unique values with the number they appeared in the array.
+
+    let arr = ["hello", "world", "java", "hello", "java"]
+    
+    let counts = {}
+    arr.forEach(str => {
+            counts[str] = (counts[str] || 0) + 1;
+    });
+    
+     for (const key in counts) {
+            console.log(`${key}: ${counts[key]}`);
+        }
+    prints: "hello: 2"
+        "world: 1"
+        "java: 2"
+
+### 8. Insert '6' in between 2 items of an array without removing any.
+
+        const arr = [1,2,3,4,5]
+        const arr2 = [...arr.slice(0,3),6,...arr.slice(3)]
+        console.log(arr2)
+
+        //Prints : [1, 2, 3, 6, 4, 5]
